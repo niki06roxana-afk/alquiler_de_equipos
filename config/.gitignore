@@ -1,6 +1,7 @@
 # Entornos virtuales
 venv/
 entorno/
+
 .venv/
 
 # Archivos compilados de Python
