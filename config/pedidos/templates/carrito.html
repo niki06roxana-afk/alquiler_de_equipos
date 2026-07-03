@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-center text-primary mb-4">
+    📅 Solicitud de Alquiler
+</h2>
+
+<table class="table table-striped table-hover shadow">
+
+    <thead class="table-dark">
+        <tr>
+            <th>Equipo</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for key, value in request.session.carrito.items %}
+
+        <tr>
+
+            <td>{{ value.nombre }}</td>
+
+            <td>
+                <span class="badge bg-primary">
+                    {{ value.cantidad }}
+                </span>
+            </td>
+
+            <td>
+
+                <a href="{% url 'agregar' key %}" class="btn btn-success btn-sm">
+                    +
+                </a>
+
+                <a href="{% url 'restar' key %}" class="btn btn-warning btn-sm">
+                    -
+                </a>
+
+                <a href="{% url 'eliminar' key %}" class="btn btn-danger btn-sm">
+                    Eliminar
+                </a>
+
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+<hr>
+
+<h4 class="mb-3">Seleccione las fechas del alquiler</h4>
+
+<form method="POST" action="{% url 'confirmar_pedido' %}">
+
+    {% csrf_token %}
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <label class="form-label">
+                Fecha de alquiler
+            </label>
+
+            <input
+                type="date"
+                name="fecha_alquiler"
+                class="form-control"
+                required>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <label class="form-label">
+                Fecha de devolución
+            </label>
+
+            <input
+                type="date"
+                name="fecha_devolucion"
+                class="form-control"
+                required>
+
+        </div>
+
+    </div>
+
+    <div class="text-center mt-4">
+
+        <a href="{% url 'limpiar' %}" class="btn btn-danger">
+            🗑 Vaciar solicitud
+        </a>
+
+        <button type="submit" class="btn btn-success">
+            ✅ Confirmar alquiler
+        </button>
+
+    </div>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+
+    <!-- Enlace a tu CSS -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <!-- Nuevo mensaje de bienvenida -->
+    <h2>Bienvenido al sistema de alquiler de equipos tecnológicos</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Ingresar</button>
+    </form>
+
+</div>
+
+</body>
+</html>

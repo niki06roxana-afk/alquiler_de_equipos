@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-center text-info mb-4">
+    📋 Mis Alquileres
+</h2>
+
+<div class="row">
+
+{% for pedido in pedidos %}
+
+<div class="col-md-6 mb-4">
+
+    <div class="card shadow">
+
+        <div class="card-body">
+
+            <h5>
+                Solicitud #{{ pedido.id }}
+            </h5>
+
+            <p>
+                <strong>Fecha de alquiler:</strong>
+                {{ pedido.fecha_alquiler }}
+            </p>
+
+            <p>
+                <strong>Fecha de devolución:</strong>
+                {{ pedido.fecha_devolucion }}
+            </p>
+
+            <p>
+                <strong>Estado:</strong>
+
+                {% if pedido.estado == "Pendiente" %}
+                    <span class="badge bg-warning text-dark">
+                        Pendiente
+                    </span>
+
+                {% elif pedido.estado == "Aprobado" %}
+                    <span class="badge bg-success">
+                        Aprobado
+                    </span>
+
+                {% else %}
+                    <span class="badge bg-secondary">
+                        Devuelto
+                    </span>
+
+                {% endif %}
+            </p>
+
+            <a href="{% url 'detalle_pedido' pedido.id %}"
+            class="btn btn-primary">
+                Ver detalle
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% empty %}
+
+<div class="alert alert-info text-center">
+    No tienes solicitudes de alquiler registradas.
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}
