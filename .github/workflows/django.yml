@@ -10,8 +10,16 @@ on:
 jobs:
   revisar-proyecto:
     runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: config
+
+
+
 
     steps:
+  
       - name: Descargar codigo
         uses: actions/checkout@v4
 
