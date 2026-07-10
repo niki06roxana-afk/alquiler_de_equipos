@@ -1,0 +1,634 @@
+/* ==========================================
+ESTILO GENERAL
+========================================== */
+
+body{
+    margin:0;
+    padding:0;
+    font-family:'Segoe UI',sans-serif;
+
+    background-image:url("../img/fondo_tecnologico.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    min-height:100vh;
+    position:relative;
+    overflow-x:hidden;
+}
+
+/* ==========================================
+DIBUJOS DEL FONDO
+========================================== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+
+    body::before{
+    display:none;
+}
+    background-repeat:no-repeat;
+
+    background-size:
+        170px,
+        150px,
+        120px,
+        130px,
+        150px,
+        150px,
+        100px;
+
+    background-position:
+        left 40px top 180px,
+        right 40px top 220px,
+        left 60px bottom 250px,
+        left 40px bottom 60px,
+        right 50px bottom 70px,
+        center bottom 20px,
+        right 220px bottom 35px;
+
+    opacity:.12;
+}
+
+/* Círculo decorativo */
+
+body::after{
+    content:"";
+    position:fixed;
+    width:320px;
+    height:320px;
+    background:#ffc3df;
+    border-radius:50%;
+    bottom:-120px;
+    right:-120px;
+    opacity:.25;
+    z-index:-3;
+}
+
+/* ==========================================
+CONTENEDOR PRINCIPAL
+========================================== */
+
+.container{
+
+    background:rgba(255,255,255,.94);
+
+    border-radius:30px;
+
+    padding:30px;
+
+    margin-top:25px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+}
+
+/* ==========================================
+NAVBAR
+========================================== */
+
+.navbar{
+
+    background:#ff5ca8 !important;
+
+    border-radius:20px;
+
+    padding:15px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+
+}
+
+.navbar-brand{
+
+    color:white !important;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+/* ==========================================
+MENÚ
+========================================== */
+
+.menu{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+.menu-btn{
+
+    text-decoration:none;
+
+    color:white;
+
+    background:#ff89c0;
+
+    padding:10px 18px;
+
+    border-radius:15px;
+
+    transition:.30s;
+
+    font-weight:600;
+
+}
+
+.menu-btn:hover{
+
+    background:white;
+
+    color:#ff4b93;
+
+    transform:translateY(-3px);
+
+}
+
+.activo{
+
+    background:white;
+
+    color:#ff2f88;
+
+    box-shadow:0 6px 15px rgba(255,105,180,.45);
+
+}
+
+/* ==========================================
+TARJETAS
+========================================== */
+
+.card{
+
+    border:none;
+
+    border-radius:25px;
+
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+
+    transition:.30s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 30px rgba(255,105,180,.30);
+
+}
+
+/* ==========================================
+TABLAS
+========================================== */
+
+table{
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+thead{
+
+    background:#ff5ca8;
+
+    color:white;
+
+}
+
+tbody tr:hover{
+
+    background:#ffe4f2;
+
+}
+
+/* ==========================================
+BOTONES
+========================================== */
+
+.btn{
+
+    border-radius:12px;
+
+}
+
+.btn-primary{
+
+    background:#ff4b93;
+
+    border:none;
+
+}
+
+.btn-primary:hover{
+
+    background:#ff2c82;
+
+}
+
+.btn-success{
+
+    background:#ff79b7;
+
+    border:none;
+
+}
+
+.btn-success:hover{
+
+    background:#ff5ca8;
+
+}
+
+/* ==========================================
+ALERTAS
+========================================== */
+
+.alert{
+
+    border-radius:15px;
+
+}
+
+/* ==========================================
+TÍTULOS
+========================================== */
+
+h1,h2,h3,h4,h5{
+
+    color:#ff4b93;
+
+    font-weight:bold;
+
+}
+/* =======================
+    MENÚ MODERNO
+======================= */
+
+.menu{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.menu-btn{
+
+    padding:12px 18px;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-weight:bold;
+
+    border-radius:18px;
+
+    transition:.35s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+/* Colores de cada botón */
+
+.menu a:nth-child(1){
+    background:#ff8ab9;
+}
+
+.menu a:nth-child(2){
+    background:#8b5cf6;
+}
+
+.menu a:nth-child(3){
+    background:#f59e0b;
+}
+
+.menu a:nth-child(4){
+    background:#10b981;
+}
+
+.menu a:nth-child(5){
+    background:#3b82f6;
+}
+
+/* Hover */
+
+.menu-btn:hover{
+
+    transform:translateY(-4px);
+
+    color:white;
+
+    filter:brightness(1.1);
+
+}
+
+/* Botón activo */
+
+.activo{
+
+    transform:scale(1.08);
+
+    border:3px solid white;
+
+    box-shadow:0 8px 25px rgba(255,255,255,.6);
+
+}
+/* ==========================
+FONDO LOGIN
+========================== */
+
+.login-fondo{
+
+    min-height:100vh;
+
+    background-image:url("../img/fondo_tecnologico.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+/* Caja del login */
+
+.login-container{
+
+    background:rgba(255,255,255,0.92);
+
+    padding:35px;
+
+    border-radius:25px;
+
+    width:380px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.20);
+
+}
+/* ==========================
+   DISEÑO LOGIN
+========================== */
+
+
+.login-fondo{
+
+    min-height:100vh;
+
+    background-image:url("../img/fondo_tecnologico.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+/* Caja blanca del login */
+
+.login-container{
+
+    width:420px;
+
+    background:rgba(255,255,255,0.95);
+
+    padding:40px;
+
+    border-radius:30px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+
+    text-align:center;
+
+}
+
+
+/* Título */
+
+.login-container h2{
+
+    color:#ff4b93;
+
+    font-size:25px;
+
+    margin-bottom:30px;
+
+}
+
+
+/* Campos */
+
+.login-container input{
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:15px;
+
+    border:2px solid #ffc1dc;
+
+    margin-top:5px;
+
+}
+
+
+/* Etiquetas */
+
+.login-container label{
+
+    color:#ff4b93;
+
+    font-weight:bold;
+
+}
+
+
+/* Botón */
+
+.login-container button{
+
+    width:100%;
+
+    padding:13px;
+
+    margin-top:20px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#ff5ca8;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+.login-container button:hover{
+
+    background:#ff2f88;
+
+}
+body {
+    background: red !important;
+}
+/* ==========================
+LOGIN CON FONDO TECNOLÓGICO
+========================== */
+
+.login-fondo{
+
+    min-height:100vh;
+
+    background-image:url("../img/fondo_tecnologico.png") !important;
+
+    background-size:cover !important;
+
+    background-position:center !important;
+
+    background-repeat:no-repeat !important;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+/* Caja del formulario */
+
+.login-container{
+
+    width:420px;
+
+    background:rgba(255,255,255,0.95);
+
+    padding:40px;
+
+    border-radius:30px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+
+    text-align:center;
+
+}
+
+
+/* Título */
+
+.login-container h2{
+
+    color:#ff4b93;
+
+    font-size:24px;
+
+    margin-bottom:25px;
+
+}
+
+
+/* Campos de usuario y contraseña */
+
+.login-container input{
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:15px;
+
+    border:2px solid #ffb6d5;
+
+}
+
+
+/* Botón */
+
+.login-container button{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:20px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#ff5ca8;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+.btn-reporte {
+
+    background:#10b981;
+
+    color:white;
+
+    border-radius:15px;
+
+    padding:14px 35px;
+
+    text-decoration:none;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+    display:inline-block;
+
+}
+
+
+.btn-reporte:hover {
+
+    background:#059669;
+
+    color:white;
+
+    transform:translateY(-3px);
+
+}
+}

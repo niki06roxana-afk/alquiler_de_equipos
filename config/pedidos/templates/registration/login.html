@@ -1,28 +1,56 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Login</title>
 
-    <!-- Enlace a tu CSS -->
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
 
-<body>
+
+<body class="login-fondo">
+
 
 <div class="login-container">
 
-    <!-- Nuevo mensaje de bienvenida -->
-    <h2>Bienvenido al sistema de alquiler de equipos tecnológicos</h2>
+
+    <h2>
+        Bienvenido al sistema de alquiler de equipos tecnológicos
+    </h2>
+
 
     <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
 
-        <button type="submit">Ingresar</button>
+        {% csrf_token %}
+
+
+        <div class="formulario">
+
+            {{ form.as_p }}
+
+        </div>
+
+
+        <button type="submit">
+
+            Ingresar
+
+        </button>
+
+
     </form>
+
 
 </div>
 
+
 </body>
+
 </html>
