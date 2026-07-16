@@ -18,7 +18,7 @@
 
     <tbody>
 
-    {% for key, value in request.session.carrito.items %}
+        {% for key, value in request.session.carrito.items %}
 
         <tr>
 
@@ -48,7 +48,7 @@
 
         </tr>
 
-    {% endfor %}
+        {% endfor %}
 
     </tbody>
 
@@ -62,35 +62,24 @@
 
     {% csrf_token %}
 
-    <div class="row">
+    <div class="col-md-6">
 
-        <div class="col-md-6">
+        <label class="form-label">
+            Fecha de alquiler
+        </label>
 
-            <label class="form-label">
-                Fecha de alquiler
-            </label>
+        <input type="date" id="fecha_alquiler" name="fecha_alquiler" class="form-control" min="{{ fecha_hoy }}"
+            required>
 
-            <input
-                type="date"
-                name="fecha_alquiler"
-                class="form-control"
-                required>
+    </div>
 
-        </div>
+    <div class="col-md-6">
 
-        <div class="col-md-6">
+        <label class="form-label">
+            Fecha de devolución
+        </label>
 
-            <label class="form-label">
-                Fecha de devolución
-            </label>
-
-            <input
-                type="date"
-                name="fecha_devolucion"
-                class="form-control"
-                required>
-
-        </div>
+        <input type="date" id="fecha_devolucion" name="fecha_devolucion" class="form-control" required>
 
     </div>
 
@@ -107,5 +96,37 @@
     </div>
 
 </form>
+<div class="text-center mt-4">
 
+    <a href="{% url 'limpiar' %}" class="btn btn-danger">
+        🗑 Vaciar solicitud
+    </a>
+
+    <button type="submit" class="btn btn-success">
+        ✅ Confirmar alquiler
+    </button>
+
+</div>
+
+</form>
+
+<!-- JavaScript -->
+<script>
+
+    const alquiler = document.getElementById("fecha_alquiler");
+    const devolucion = document.getElementById("fecha_devolucion");
+
+    alquiler.addEventListener("change", function () {
+
+        devolucion.min = alquiler.value;
+
+        if (devolucion.value < alquiler.value) {
+            devolucion.value = alquiler.value;
+        }
+
+    });
+
+</script>
+
+{% endblock %}
 {% endblock %}
